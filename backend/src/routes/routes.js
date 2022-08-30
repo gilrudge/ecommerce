@@ -42,20 +42,6 @@ router.put('/produtos/:id', async (req, res) => {
 
 });
 
-// router.patch('/produtos/:id', async (req, res) => {
-
-//   const id = req.params.id;
-//   const item = req.body;
-//   const query = { _id: id };
-
-//   await produtos.findOneAndUpdate(query, { name: item.name })
-
-//   res.send({
-//     message: "item alterado"
-//   })
-
-// });
-
 router.delete('/produtos/:id', async (req, res) => {
   const id = req.params.id
 
