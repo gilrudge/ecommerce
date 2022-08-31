@@ -1,5 +1,5 @@
-# Mini projeto para ecommerce
+# Small CRUD Project
 
-- BackEnd em Express
-- Comunicação com DB Mongo utilizando Mongoose
-- FrontEnd em React
+- FrontEnd using ReactJS with Axios for HTTP requests
+- BackEnd using ExpressJS
+- MongoDB Cloud connection using Mongoose

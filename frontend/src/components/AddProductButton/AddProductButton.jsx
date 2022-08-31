@@ -13,12 +13,11 @@ export default function AddProductButton(){
   }
 
   return(
-    <>
-    <h2>Clique para criar novo produto</h2>
-    <button onClick={() => {newProduct()}}>Criar novo produto</button>
-    {showForm === true ? <AddProduct/> : null}
-    
-    </>
+    <div>
+      <h2>Clique para criar novo produto</h2>
+      <button onClick={() => {newProduct()}}>Criar novo produto</button>
+      {showForm === true ? <AddProduct/> : null}      
+    </div>
   )
 
 }

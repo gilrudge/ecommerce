@@ -4,18 +4,18 @@ import ProductsList from './components/ProductsList/produstsList';
 import ProductButton from './components/ProductButton/ProductButton';
 import AddProduct from './components/AddProduct/AddProduct';
 import AddProductButton from './components/AddProductButton/AddProductButton';
-import {AppContainer} from './AppStyles'
+import {AppContainer, Title} from './AppStyles'
 import './App.css'
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Front Mercado</h1>
-      <div>
+      <Title>Front Mercado</Title>
+      <AppContainer>
         <ProductButton/>
         <AddProductButton/>
-      </div>
+      </AppContainer>
     </div>
   )
 }
