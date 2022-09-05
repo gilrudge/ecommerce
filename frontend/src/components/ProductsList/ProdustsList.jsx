@@ -19,6 +19,7 @@ export default function ProductsList(){
   
     useEffect(() => {
       fetchItens()
+            
     }, []);
   
     return (

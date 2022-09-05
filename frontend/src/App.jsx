@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <Title>Front Mercado</Title>
+      <Title>Cadastro de Produtos</Title>
       <AppContainer>
         <ProductButton/>
         <AddProductButton/>
