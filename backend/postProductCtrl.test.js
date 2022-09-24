@@ -47,7 +47,8 @@ const produtos = require('./src/database/database');
 
 const postProductsCtrl = require('./src/controller/postProductsCtrl');
 const getProductsCtrl = require('./src/controller/getProductsCtrl');
-
+const putProductsCtrl = require('./src/controller/putProductsCtrl');
+const delProductsCtrl = require('./src/controller/delProductsCtrl')
 
 beforeAll( async () => {
   await mongoose.connect(`mongodb+srv://teste:1234@testeprodutos.7tqgynq.mongodb.net/?retryWrites=true&w=majority`);
@@ -82,7 +83,60 @@ describe('products controllers',() => {
     expect(response.length).not.toBe(0);
   })
 
-});
+  it('change a thing into mongo', async () => {
+    let jsonWasCalled = false
+    const res = {
+      send: () => jsonWasCalled = true
+    }
+    
+    const req = { 
+      params:{
+        _id:'630fae0a7ff558dcd4c3cec4'
+      },
+      body: {
+        name:'abacate',
+        price:25,
+        qtt: 150
+      }
+    };
+
+    const {name, price, qtt} = req.body;   
+    await putProductsCtrl(req, res);    
+    const response = await produtos.replaceOne({_id:'630fae0a7ff558dcd4c3cec4'},{name:'abacate', price:25, qtt: 150})    
+    
+    expect(response.length).not.toBe(0);
+    });
+
+    it('delete a thing into mongo', async () => {
+      let jsonWasCalled = false
+    const res = {
+      send: () => jsonWasCalled = true
+    }    
+    
+    const req = { 
+      params:{
+        _id:'630fae0a7ff558dcd4c3cec4'
+      },
+      body: {
+        name:'abacate',
+        price:25,
+        qtt: 150
+      }
+    };
+    
+    const {name, price, qtt} = req.body;    
+    
+    await delProductsCtrl(req, res);
+    
+    const response = await produtos.deleteOne({_id:'630fae0a7ff558dcd4c3cec4'});
+    
+    expect(response).toEqual(expect.not.objectContaining({_id:'630fae0a7ff558dcd4c3cec4'}));
+
+    });
+
+  });
+
+
 
 afterAll(async () => {
   await mongoose.connection.close()

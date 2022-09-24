@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const postProductsCtrl = require('../controller/postProductCtrl');
+const postProductsCtrl = require('../controller/postProductsCtrl');
 const getProductsCtrl = require('../controller/getProductsCtrl');
 const putProductsCtrl = require('../controller/putProductsCtrl');
 const delProductsCtrl = require('../controller/delProductsCtrl');
