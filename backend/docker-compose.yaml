@@ -1,0 +1,29 @@
+version: 'v3.8'
+
+services:
+
+  meu_app:
+    build: .
+    image: meu_app:latest
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+      MONGO_URL: mongodb://gil:teste1234@mongodbgil:27017/mongodbgil
+    depends_on:
+      - mongodbgil
+
+
+  mongodbgil:
+    image: mongo
+    ports:
+
+      - 27017:27017
+
+    volumes:
+      # - /home/gilbl/Desktop/mongodata:/data/db
+      - C:\Users\gilbl\Documents\Programação\Lets Code\PI Web Full Stack\Testes Automatizados\ecommerce\mongodata:\data\db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: gil
+      MONGO_INITDB_ROOT_PASSWORD: teste1234
+
